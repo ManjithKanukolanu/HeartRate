@@ -116,7 +116,7 @@ The server will start on `http://localhost:5000`.
 - **Response:**
   ```json
   {
-    "heartrates": ["rate":"78","recordedAt": "2025-02-11T17:33:11.425Z"]
+    "heartrates": [{"_id": "67ab89d77d0a709d140b7bab","rate":88,"recordedAt": "2025-02-11T17:33:11.425Z"}]
   }
   ```
 

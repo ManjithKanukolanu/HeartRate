@@ -123,7 +123,7 @@ The server will start on `http://localhost:5000`.
       "recordedAt": "2025-02-11T17:33:11.425Z"
     }
   ]
-}
+  }
 ```
 
 

@@ -20,7 +20,7 @@ npm install
 ### 3. Configure Environment Variables
 Create a `.env` file in the project root and add the following:
 ```env
-PORT=5000
+PORT=5003
 MongodbUrl=your_mongodb_connection_string
 ```
 Replace `your_mongodb_connection_string` with your actual MongoDB connection URL.
@@ -29,7 +29,7 @@ Replace `your_mongodb_connection_string` with your actual MongoDB connection URL
 ```bash
 npm start
 ```
-The server will start on `http://localhost:5000`.
+The server will start on `http://localhost:5003`.
 
 ---
 

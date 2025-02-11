@@ -1,105 +1,140 @@
-HeartRate API
+# HeartRate API
 
-Project Description
+## Project Description
+The **HeartRate API** is a Node.js and Express-based application that allows users to register, login, and track patient heart rate data. It uses MongoDB as the database and supports RESTful API endpoints for managing users and patients.
 
-The HeartRate API is a Node.js and Express-based application that allows users to register, login, and track patient heart rate data. It uses MongoDB as the database and supports RESTful API endpoints for managing users and patients.
-Setup Instructions
-1. Clone the Repository
-    -> git clone
-        https://github.com/yourusername/HeartRate.git
-    -> cd HeartRate
-   
-3. Install Dependencies
-      npm install
-   
-4. Configure Environment Variables
-     Create a .env file in the project root and add the following:
-     PORT=5003
-     MongodbUrl=your_mongodb_connection_string
-   
-5. Start the Server
-     npm start
-     The server will start on http://localhost:5003.
-   
-API Documentation
-  1.Register User
-  Endpoint: POST /user/register
-    Request Body:
-   {
-   "email": "user@example.com",
-   "password": "password123"
-   }
-   Response:
+---
+
+## Setup Instructions
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/HeartRate.git
+cd HeartRate
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+Create a `.env` file in the project root and add the following:
+```env
+PORT=5000
+MongodbUrl=your_mongodb_connection_string
+```
+Replace `your_mongodb_connection_string` with your actual MongoDB connection URL.
+
+### 4. Start the Server
+```bash
+npm start
+```
+The server will start on `http://localhost:5000`.
+
+---
+
+## API Documentation
+### **1. User Authentication**
+#### **Register User**
+- **Endpoint:** `POST /user/register`
+- **Request Body:**
+  ```json
   {
-  "message": "User registered successfully"
+    "email": "user@example.com",
+    "password": "password123"
   }
-2.User Login
-Endpoint: POST /user/login
-  Request Body:
+  ```
+- **Response:**
+  ```json
   {
-  "email": "user@example.com",
-  "password": "password123"
+    "message": "User registered successfully"
   }
-  Response:
- {
-  "message": "User login successful"
- }
+  ```
 
-3. Patient Management
+#### **User Login**
+- **Endpoint:** `POST /user/login`
+- **Request Body:**
+  ```json
+  {
+    "email": "user@example.com",
+    "password": "password123"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "message": "User login successful"
+  }
+  ```
 
-Create Patient
+### **2. Patient Management**
+#### **Create Patient**
+- **Endpoint:** `POST /patient/create`
+- **Request Body:**
+  ```json
+  {
+    "name": "John Doe",
+    "disease": "Hypertension"
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "message": "Patient created successfully"
+  }
+  ```
 
-Endpoint: POST /patient/create
+#### **Get Patient Details**
+- **Endpoint:** `GET /patient/details?id=patient_id`
+- **Response:**
+  ```json
+  {
+    "_id": "12345",
+    "name": "John Doe",
+    "disease": "Hypertension"
+  }
+  ```
 
-  Request Body:
+### **3. Heart Rate Management**
+#### **Add Heart Rate**
+- **Endpoint:** `POST /patient/heartrate?id=patient_id`
+- **Request Body:**
+  ```json
+  {
+    "rate": 72
+  }
+  ```
+- **Response:**
+  ```json
+  {
+    "message": "Heart rate recorded successfully"
+  }
+  ```
 
- {
-  "name": "John Doe",
-  "disease": "Hypertension"
- }
+#### **Get Heart Rate Details**
+- **Endpoint:** `GET /patient/details/heartrate?id=patient_id`
+- **Response:**
+  ```json
+  {
+    "heartrates": [72, 75, 78]
+  }
+  ```
 
- Response:
+---
 
- {
-  "message": "Patient created successfully"
- }
+## Assumptions & Decisions
+- **Authentication:** Basic authentication without password encryption. In production, passwords should be hashed using **bcrypt**.
+- **Database:** MongoDB is used as the primary database.
+- **Error Handling:** Basic error handling is implemented, but it can be improved for production environments.
+- **Environment Variables:** The MongoDB URL and PORT should be configured in `.env`.
 
-Get Patient Details
+---
 
-Endpoint: GET /patient/details?id=patient_id
+## Additional Information
+- Developed using **Node.js**, **Express.js**, and **MongoDB**.
+- Ensure **MongoDB is running** before starting the server.
+- API can be tested using **Postman**
 
-Response:
+Feel free to contribute to this project! 🚀
 
-{
-  "_id": "12345",
-  "name": "John Doe",
-  "disease": "Hypertension"
-}
 
-3. Heart Rate Management
-
-Add Heart Rate
-
-Endpoint: POST /patient/heartrate?id=patient_id
-
- Request Body:
-  
- {
-  "rate": 72
- }
-
- Response:
-
- {
-  "message": "Heart rate recorded successfully"
- }
-
-Get Heart Rate Details
-
-Endpoint: GET /patient/details/heartrate?id=patient_id
-
- Response:
-
- {
-  "heartrates": [{"rate":"72","recordedAt":"2025-02-11T17:33:11.425+00:00"}]
- }

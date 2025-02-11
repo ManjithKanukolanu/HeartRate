@@ -124,10 +124,9 @@ The server will start on `http://localhost:5000`.
     }
   ]
 }
+```
 
-  ```
 
----
 
 ## Assumptions & Decisions
 - **Authentication:** Basic authentication without password encryption. In production, passwords should be hashed using **bcrypt**.

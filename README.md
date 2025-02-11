@@ -133,6 +133,6 @@ The server will start on `http://localhost:5000`.
 ## Additional Information
 - Developed using **Node.js**, **Express.js**, and **MongoDB**.
 - Ensure **MongoDB is running** before starting the server.
-- API can be tested using **Postman** or **cURL**.
+- API can be tested using **Postman** .
 
 Feel free to contribute to this project! 🚀

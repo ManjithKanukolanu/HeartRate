@@ -115,16 +115,12 @@ The server will start on `http://localhost:5000`.
 - **Endpoint:** `GET /patient/details/heartrate?id=patient_id`
 - **Response:**
   ```json
-   {
-  "heartrates": [
-    {
-      "rate": 88,
-      "_id": "67ab89d77d0a709d140b7bab",
-      "recordedAt": "2025-02-11T17:33:11.425Z"
-    }
-  ]
+  {
+    "heartrates": ["rate":"78","recordedAt": "2025-02-11T17:33:11.425Z"]
   }
-```
+  ```
+
+---
 
 ## Assumptions & Decisions
 - **Authentication:** Basic authentication without password encryption. In production, passwords should be hashed using **bcrypt**.
@@ -133,11 +129,10 @@ The server will start on `http://localhost:5000`.
 - **Environment Variables:** The MongoDB URL and PORT should be configured in `.env`.
 
 ---
+
 ## Additional Information
 - Developed using **Node.js**, **Express.js**, and **MongoDB**.
 - Ensure **MongoDB is running** before starting the server.
-- API can be tested using **Postman**
+- API can be tested using **Postman** or **cURL**.
 
 Feel free to contribute to this project! 🚀
-
-

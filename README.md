@@ -128,7 +128,7 @@ The server will start on `http://localhost:5000`.
 
 
 
-## Assumptions & Decisions
+### Assumptions & Decisions
 - **Authentication:** Basic authentication without password encryption. In production, passwords should be hashed using **bcrypt**.
 - **Database:** MongoDB is used as the primary database.
 - **Error Handling:** Basic error handling is implemented, but it can be improved for production environments.
@@ -136,7 +136,7 @@ The server will start on `http://localhost:5000`.
 
 ---
 
-## Additional Information
+### Additional Information
 - Developed using **Node.js**, **Express.js**, and **MongoDB**.
 - Ensure **MongoDB is running** before starting the server.
 - API can be tested using **Postman**
